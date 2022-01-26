@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <style>
+            body {
+                background-image: url('webAss.jpg');
+            }
+            .ui.container{
+                margin-top:100px;
+                background-color:white;
+                border-radius: 20px;
+                padding-top:10px;
+                padding-bottom:25px;
+            }
+            .positive.ui.button{
+                padding: 10px 60px;
+            }
+        </style>
+        <script type=text/javascript>
+            function check(){
+                if (document.registerForm.password.value != document.registerForm.confirmPassword.value){
+                        alert("Password and Confirmed Password are not the same");
+                        return false;
+                }else
+                    return true;
+            }
+            function checkField(){
+                if((document.registerForm.fName.value == "")  || (document.registerForm.lName.value == "") ||
+                    (document.registerForm.uName.value == "") || (document.registerForm.password.value == "") ||
+                    (document.registerForm.confirmPassword.value == "") || (document.registerForm.category.value == "")){
+                        alert("Please enter all fields");
+                        return false;
+                    }
+                    else
+                    return true;
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <div class="ui container" >
+        <h1 align="center" class="ui dividing header">REGISTER INFORMATION</h1>
+        <form name="registerForm" action="process_register.php" method="POST" onsubmit="return check() && checkField();" class="ui form" align="center" >
+            <div class="field" align="center">
+                <div class="six wide field"> <!--for NAME-->
+                    <div class="required field"> 
+                        <label align="left">Name</label>
+                            <div class="two fields">
+                                <div class="field">
+                                    <input type="text" name="fName" placeholder="First Name">
+                                </div>
+                                <div class=" field">
+                                    <input type="text" name="lName" placeholder="Last Name">
+                                </div>
+                            </div>
+                    </div>
+                </div><!--end of div six side fields-->
+
+                
+                    <div class="six wide field"><!--for USERNAME--> 
+                        <div class="required field">
+                            <label align="left">Username</label>
+                            <div class="field">
+                                <div class="field">
+                                    <input type="text" name="uName" placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!--end of div six side fields-->
+
+                    <div class="six wide field"><!--for PASSWORD-->
+                        <div class="required field">
+                            <label align="left">Password</label>
+                            <div class="field">
+                                <div class="field">
+                                    <input type="password" name="password" placeholder="Password">
+                                </div>
+                                <div class=" field">
+                                    <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end of div six side fields-->
+
+                    <div class="six wide field">
+                        <div class="required field">
+                            <label align="left">Select Category</label>
+                            <div align="left" class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="category" value="5 KM">
+                                    <label>5 Km</label>
+                                </div>
+                            </div>
+                            <div align="left" class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="category" value="10 KM">
+                                    <label>10 Km</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+			
+                    	<button class=" positive ui button" type="submit">Register</button>
+			<br>
+			<br>
+			<p>Already have an account? Login here<p>
+			
+            </div> 
+            
+        </form>
+        <div class="field" align="center">
+            <a href="login_user.php">
+                <button align="center" class="ui blue button" type="submit">Login</button>
+            </a>
+        </div>
+        
+    <div>
+
+    </body>
+
+</html>
